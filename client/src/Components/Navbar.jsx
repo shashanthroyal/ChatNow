@@ -38,7 +38,7 @@ function Navbar() {
   return (
     <div className="navbar">
       <div className="navbar-brand">
-        <img src={"/src/assets/chatnow-logo.png"} alt="ChatNow Logo" />
+  <img src={"/chatnow-logo.png"} alt="ChatNow Logo" />
         <h2><span>hat</span> Now</h2>
       </div>
       <div className="navbar-links">
