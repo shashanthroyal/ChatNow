@@ -1,0 +1,277 @@
+.chat-container {
+    display: flex;
+    height: calc(100vh - 80px); /* Adjust for navbar height */
+    background-color: #e0e5ec; /* Softer, slightly darker background */
+    font-family: 'Roboto', sans-serif; /* Modern font */
+    overflow: hidden; /* Prevent scrolling issues */
+}
+
+.chat-sidebar {
+    width: 280px; /* Slightly wider sidebar */
+    background-color: #f0f2f5; /* Light background */
+    border-right: 1px solid #c8d0d8; /* Subtle border */
+    padding: 1.5rem 1rem; /* More padding */
+    display: flex;
+    flex-direction: column;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+}
+
+.chat-sidebar h3 {
+    margin-top: 0;
+    margin-bottom: 1.5rem; /* More space */
+    color: #333;
+    font-size: 1.8rem; 
+    border-radius: 6px;
+    height: 70px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    color: white;
+    font-weight: 800;
+    background-color:#007bff;
+}
+
+.user-list {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding-right: 5px; 
+}
+
+.user-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+.user-list::-webkit-scrollbar-thumb {
+    background-color: #c8d0d8;
+    border-radius: 4px;
+}
+
+.user-item {
+    display: flex;
+    align-items: center;
+    padding: 1rem 0.8rem; /* More padding */
+    margin-bottom: 0.75rem; /* More space */
+    border-radius: 8px; /* Softer corners */
+    background-color: #ffffff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+
+    .user-name{
+        font-weight: 500;
+        font-size: 1.1rem;
+    }
+}
+
+.user-item:hover {
+    background-color: #e0e5ec; /* Lighter hover */
+    transform: translateY(-2px); /* Lift effect */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.user-item.selected {
+    background-color: #007bff; /* Primary color for selected */
+    color: white;
+    
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.user-item.selected .online-indicator {
+    background-color: #28a745; /* Keep green for online */
+    border: 1px solid white; /* Border for visibility */
+}
+
+.user-item.selected .user-name {
+    color: white; 
+    font-weight: 800;
+    /* Ensure name is white */
+}
+
+.profile-photo {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
+    border: 2px solid #c8d0d8;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.chat-header-info {
+    display: flex;
+    align-items: center;
+}
+
+.chat-header-info img {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
+    border: 2px solid #007bff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.user-name {
+    flex-grow: 1;
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: #333;
+}
+
+.online-indicator {
+    width: 10px;
+    height: 10px;
+    background-color: #28a745; /* Green for online */
+    border-radius: 50%;
+    margin-left: 10px;
+    border: 2px solid #ffffff; /* White border for contrast */
+}
+
+.user-item.offline .online-indicator {
+    background-color: #dc3545; /* Red for offline */
+    border: 2px solid #ffffff;
+}
+
+.chat-main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: #fdfdfe; /* Slightly off-white */
+    border-radius: 10px; /* Rounded corners for main chat area */
+    margin: 1rem; /* Margin around the chat area */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* More pronounced shadow */
+    overflow: hidden; /* Ensure content stays within rounded corners */
+}
+
+.chat-header {
+    padding: 1.2rem 1.5rem;
+    border-bottom: 1px solid #e0e5ec; /* Lighter border */
+    background-color: #ffffff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.chat-header h3 {
+    margin: 0;
+    color: #333;
+    font-size: 1.6rem;
+    font-weight: 800;
+}
+
+.message-list {
+    flex-grow: 1;
+    padding: 1.5rem;
+    overflow-y: auto;
+    background-color: #fdfdfe;
+}
+
+.message-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+.message-list::-webkit-scrollbar-thumb {
+    background-color: #c8d0d8;
+    border-radius: 4px;
+}
+
+.message-item {
+    display: flex;
+    margin-bottom: 1rem;
+}
+
+.message-item.my-message {
+    justify-content: flex-end;
+}
+
+.message-item.other-message {
+    justify-content: flex-start;
+}
+
+.message-content {
+    max-width: 65%; /* Slightly less width for messages */
+    padding: 0.9rem 1.2rem; /* More padding */
+    border-radius: 20px; /* More rounded corners */
+    line-height: 1.5;
+    font-size: 1rem;
+    word-wrap: break-word;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.my-message .message-content {
+    background-color: #007bff; /* Primary color */
+    color: white;
+    border-bottom-right-radius: 5px; /* Pointy corner */
+}
+
+.other-message .message-content {
+    background-color: #e0e5ec; /* Light gray for others */
+    color: #333;
+    border-bottom-left-radius: 5px; /* Pointy corner */
+}
+
+.sender-name {
+    font-weight: 600; /* Bolder sender name */
+    margin-right: 8px;
+    color: #1a1a1a; /* Darker for contrast */
+}
+
+.my-message .sender-name {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.message-timestamp {
+    font-size: 0.7rem;
+    color: rgba(0, 0, 0, 0.4); /* Lighter timestamp */
+    margin-left: 10px;
+    white-space: nowrap;
+}
+
+.my-message .message-timestamp {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.message-input-area {
+    display: flex;
+    padding: 1rem 1.5rem; /* More padding */
+    border-top: 1px solid #e0e5ec;
+    background-color: #ffffff;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.message-input-area input {
+    flex-grow: 1;
+    padding: 0.9rem 1.2rem; /* More padding */
+    border: 1px solid #c8d0d8;
+    border-radius: 25px; /* More rounded */
+    margin-right: 0.8rem; /* More space */
+    font-size: 1rem;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.message-input-area input:focus {
+    border-color: #0056b3; /* Darker blue on focus */
+    outline: none;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 0 0 3px rgba(0, 123, 255, 0.25); /* Subtle glow */
+}
+
+.message-input-area button {
+    background-color: #007bff; /* Primary color */
+    color: white;
+    border: none;
+    border-radius: 25px; /* More rounded */
+    padding: 0.9rem 1.8rem; /* More padding */
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.message-input-area button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    transform: translateY(-1px); /* Slight lift */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
