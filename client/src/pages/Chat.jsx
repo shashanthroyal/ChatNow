@@ -20,7 +20,7 @@ function Chat() {
     console.log("Socket initialized");
   }, []);
 
-   // Scroll to latest message when messages change
+  
   useEffect(() => {
     if (messagesEndRef.current) {
       messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
