@@ -45,7 +45,7 @@ function Chat() {
       console.log("Updated users state with online status:", users);
     });
 
-    // Listen for incoming messages
+    
     socket.on("receive_message", (newMessage) => {
       console.log("Received new message:", newMessage);
       setMessages((prevMessages) => [...prevMessages, newMessage]);
