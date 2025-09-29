@@ -60,7 +60,7 @@ function Chat() {
   }, [socket, currentUserId]);
 
   useEffect(() => {
-    const id = localStorage.getItem("id"); // Assuming you store current user's ID
+    const id = localStorage.getItem("id");
     console.log("ID from localStorage:", id);
     if (id) {
       setCurrentUserId(id);
