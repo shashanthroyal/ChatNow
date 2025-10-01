@@ -21,10 +21,13 @@ function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(`${API_BASE_URL}/api/auth/register`, formData);
-      navigate('/login');
+  const res = await axios.post(`${API_BASE_URL}/api/auth/register`, formData);
+  alert(res.data.message || 'Registered successfully!');
+  navigate('/login');
     } catch (err) {
-      setError(err.response.data.message || 'Registration failed');
+      const msg = err.response?.data?.message || 'Registration failed';
+      setError(msg);
+      alert(msg);
     }
   };
 

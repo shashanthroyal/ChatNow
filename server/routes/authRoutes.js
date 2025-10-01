@@ -13,7 +13,7 @@ router.post("/register",async(req , res) =>{
         const newUser = new User({username , email , password: hashedPassword})
         await newUser.save();
 
-        res.status(201).json({message: "User registered successfully"});
+    res.status(201).json({message: "User registered successfully"});
     }catch (err){
         res.status(409).json({message: "User Already Existed"}); 
     }
@@ -37,7 +37,7 @@ router.post("/login", async(req,res) =>{
             expiresIn: "1d",
         })
 
-        res.json({token, user: {id: user._id, username: user.username , email: user.email }})
+    res.json({token, user: {id: user._id, username: user.username , email: user.email }})
         
     } catch (error) {
         res.status(500).json({error: error.message})

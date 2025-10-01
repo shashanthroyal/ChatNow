@@ -20,13 +20,16 @@ function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post(`${API_BASE_URL}/api/auth/login`, formData);
-      localStorage.setItem('token', res.data.token);
-      localStorage.setItem('username', res.data.user.username); // Store username
-      localStorage.setItem('id', res.data.user.id); // Store user ID
-      navigate('/chat');
+  const res = await axios.post(`${API_BASE_URL}/api/auth/login`, formData);
+  localStorage.setItem('token', res.data.token);
+  localStorage.setItem('username', res.data.user.username); // Store username
+  localStorage.setItem('id', res.data.user.id); // Store user ID
+  alert('Logged in successfully!');
+  navigate('/chat');
     } catch (err) {
-      setError(err.response.data.message || 'Login failed');
+      const msg = err.response?.data?.message || err.response?.data?.error || 'Login failed';
+      setError(msg);
+      alert(msg);
     }
   };
 
