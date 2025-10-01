@@ -1,12 +1,44 @@
+
+.navbar-hello-text {
+    display: none;
+    font-size: 1.5rem;
+    color: white;
+    margin-left: 10px;
+    font-weight: 600;
+}
+.sidebar-toggle {
+    display: none;
+    position: absolute;
+    top: 18px;
+    left: 18px;
+    z-index: 1001;
+    background: none;
+    border: none;
+    padding: 7px 8px;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.sidebar-toggle-bar {
+    width: 24px;
+    height: 3px;
+    background: #fff;
+    margin: 3px 0;
+    border-radius: 2px;
+    display: block;
+}
+
+
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 20px;
-    margin-bottom: -20px;
-    background: linear-gradient(90deg, #232526 0%, #414345 100%);
+    background: #007bff;
     color: white;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+    position: relative;
+    z-index: 2000;
 }
 
 .navbar-brand {
@@ -29,28 +61,24 @@
     font-size: 2rem;
     letter-spacing: 1px;
     font-weight: 700;
-
-    span{
-        color: white;
-    }
 }
 
 .navbar-user-info {
     display: flex;
-    align-items: center; 
-    gap: 1.9rem; 
+    align-items: center;
+    gap: 1.9rem;
     margin: 0px 40px;
 }
 
 .navbar-user-info p {
-    margin: 0; 
+    margin: 0;
     font-size: 1.5rem;
     color: white;
 }
 
 .navbar-user-info button {
     width: 100px;
-    height: 35px;
+    height: 40px;
     background-color: transparent;
     color: white;
     border: none;
@@ -62,6 +90,7 @@
 
 .navbar-user-info button:hover {
     background-color: red;
+    color: black;
 }
 
 .navbar-auth-links a {
@@ -71,9 +100,116 @@
     font-size: 1.5rem;
     padding: 0.5rem 1rem;
     border-radius: 5px;
+    margin-right: 35px;
     transition: background-color 0.3s ease;
 }
 
 .navbar-auth-links a:hover {
-    background-color: #007bff;
+    background-color: rgb(3, 50, 3);
+    color: white;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .navbar {
+        flex-direction: row;
+        align-items: flex-start;
+        padding: 15px;
+        max-height: 50px;
+        align-items: center;
+    }
+    .navbar-brand{
+        margin-left: 60px;
+        margin-top: 10px;
+    }
+    .navbar-brand h2 {
+        font-size: 1.5rem;
+    }
+
+    .navbar-user-info {
+        margin: 10px 0 0 0;
+        gap: 1rem;
+    }
+
+    .navbar-user-info button, .navbar-auth-links a {
+        font-size: 1.2rem;
+    }
+
+    .navbar-user-info {
+    p{
+        display: none;
+    }
+    button{
+        width: 90px;
+        height: 40px;
+        margin-top: 15px;
+        font-size: 1.5rem;
+
+    }
+
+    
+
+    .navbar-auth-links a {
+        margin-left: 1rem;
+        padding: 0.4rem 0.8rem;
+    }
+    
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .navbar-hello-text {
+        display: block;
+    }
+    .sidebar-toggle {
+        display: flex;
+    }
+    .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        padding: 15px 10px;
+        z-index: 3000;
+        justify-content: space-between;
+
+    }
+
+    
+    .navbar-brand{
+        margin-left: 40px;
+        margin-top: 10px;
+    
+    }
+    .navbar-brand h2 {
+        font-size: 1.2rem;
+    
+    }
+
+    .navbar-user-info {
+        margin: 10px 0 0 0;
+        gap: 0.5rem;
+    }
+
+    .navbar-user-info button, .navbar-auth-links a {
+        font-size: 1rem;
+    }
+
+    .navbar-user-info {
+    p{
+        display: none;
+    }
+    button{
+        width: 80px;
+        height: 35px;
+        margin: 0px 20px;
+        font-size: 1.2rem;
+
+    }
+
+    .navbar-auth-links a {
+        margin-left: 0.5rem;
+        padding: 0.3rem 0.6rem;
+    }
+}
 }

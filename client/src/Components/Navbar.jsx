@@ -35,10 +35,24 @@ function Navbar() {
             navigate('/login')
    }
     
+  
+  const handleSidebarToggle = () => {
+    window.dispatchEvent(new Event('toggleSidebar'));
+  };
+
   return (
     <div className="navbar">
+    {username ? (
+      <button className="sidebar-toggle" onClick={handleSidebarToggle} aria-label="Toggle sidebar">
+        <span className="sidebar-toggle-bar"></span>
+        <span className="sidebar-toggle-bar"></span>
+        <span className="sidebar-toggle-bar"></span>
+      </button>
+    ) : (
+      <span className="navbar-hello-text">Hello</span>
+    )}
       <div className="navbar-brand">
-  <img src={"/chatnow-logo.png"} alt="ChatNow Logo" />
+        <img src={"/chatnow-logo.png"} alt="ChatNow Logo" />
         <h2><span>hat</span> Now</h2>
       </div>
       <div className="navbar-links">

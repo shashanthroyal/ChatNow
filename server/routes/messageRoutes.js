@@ -29,4 +29,19 @@ router.post("/", async (req, res) => {
     }
 });
 
+
+router.delete("/:messageId", async (req, res) => {
+    try {
+        const { messageId } = req.params;
+
+        const deletedMessage = await Message.findByIdAndDelete(messageId);
+        if (!deletedMessage) {
+            return res.status(404).json({ error: "Message not found" });
+        }
+        res.json({ message: "Message deleted successfully" });
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
+
 export default router;
