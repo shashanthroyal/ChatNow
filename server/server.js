@@ -18,7 +18,8 @@ const onlineUsers = new Map();
 const allowedOrigins = [
   "https://chat-app-sayz.vercel.app",
   "https://chatnow-sayz.vercel.app",
-  "http://localhost:5173"
+  "http://localhost:5173",
+  "http://localhost:5175"
 ];
 
 app.use(cors({
