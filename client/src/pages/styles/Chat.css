@@ -3,7 +3,6 @@
 .chat-container {
     display: flex;
     height: calc(100vh - 80px);
-    margin-top: 70px;
     background-color: #e0e5ec;
     font-family: 'Roboto', sans-serif;
     overflow: hidden;
@@ -294,13 +293,14 @@
     .chat-container {
         flex-direction: row;
         height: auto;
+
     }
     
     .chat-main {
         width: 100vw;
         min-width: 0;
         height: 100vh;
-        margin-top: 30px;
+        margin-top: 80px;
         padding: 0.5rem;
         margin: 0.5rem 0.5rem 0.5rem 0.5rem;
         border-radius: 8px;
